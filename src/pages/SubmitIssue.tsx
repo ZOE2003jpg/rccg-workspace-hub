@@ -5,7 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { submitIssue } from "@/services/mockApi";
+import { submitIssue } from "@/services/issueApi";
+import { useToast } from "@/hooks/use-toast";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -22,6 +23,7 @@ const categories = [
 
 const SubmitIssue = () => {
   const navigate = useNavigate();
+  const { toast } = useToast();
   const [category, setCategory] = useState("");
   const [title, setTitle] = useState("");
   const [message, setMessage] = useState("");
@@ -33,9 +35,14 @@ const SubmitIssue = () => {
     e.preventDefault();
     if (!category || !title || !message) return;
     setLoading(true);
-    const result = await submitIssue({ category, title, message });
-    setAccessCode(result.accessCode);
-    setLoading(false);
+    try {
+      const result = await submitIssue({ category, title, message });
+      setAccessCode(result.accessCode);
+    } catch (err: any) {
+      toast({ title: "Error", description: err.message || "Failed to submit issue.", variant: "destructive" });
+    } finally {
+      setLoading(false);
+    }
   };
 
   const copyCode = () => {
@@ -120,7 +127,6 @@ const SubmitIssue = () => {
               </form>
             </>
           ) : (
-            /* Success Screen */
             <div className="text-center bg-card rounded-2xl p-8 sm:p-12 border border-border">
               <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6">
                 <CheckCircle2 className="w-10 h-10 text-green-600" />
@@ -135,7 +141,7 @@ const SubmitIssue = () => {
               <div className="bg-secondary rounded-xl p-6 mb-8 inline-block">
                 <p className="text-sm text-muted-foreground mb-2">Your Access Code</p>
                 <div className="flex items-center gap-3 justify-center">
-                  <span className="font-mono text-3xl font-bold text-primary tracking-wider">
+                  <span className="font-mono text-2xl sm:text-3xl font-bold text-primary tracking-wider break-all">
                     {accessCode}
                   </span>
                   <button
