@@ -5,10 +5,10 @@ import logo from "@/assets/logo.png";
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Submit Issue", href: "/submit-issue" },
   { label: "Check Response", href: "/check-response" },
   { label: "Sermons", href: "/sermons" },
   { label: "Library", href: "/library" },
+  { label: "Submit Issue", href: "/submit-issue" },
 ];
 
 const Navbar = () => {
