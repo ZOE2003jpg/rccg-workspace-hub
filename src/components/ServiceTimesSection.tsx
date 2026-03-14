@@ -1,9 +1,9 @@
 import { Clock, MapPin } from "lucide-react";
 
 const services = [
-  { day: "Sunday", title: "Sunday Worship Service", time: "9:00 AM - 11:30 AM" },
-  { day: "Tuesday", title: "Bible Study", time: "6:30 PM - 8:00 PM" },
-  { day: "Friday", title: "Prayer & Praise Night", time: "7:00 PM - 9:00 PM" },
+  { day: "Sunday", title: "Sunday Worship Service", time: "9:00 AM – 11:30 AM" },
+  { day: "Tuesday", title: "Bible Study (Digging Deep)", time: "5:30 PM" },
+  { day: "Thursday", title: "Faith Clinic (Prayer Service)", time: "5:30 PM" },
 ];
 
 const ServiceTimesSection = () => {
@@ -35,10 +35,14 @@ const ServiceTimesSection = () => {
           ))}
         </div>
 
-        <div className="flex items-center justify-center gap-2 text-muted-foreground">
-          <MapPin className="w-5 h-5 text-primary" />
-          <span className="text-lg">123 Faith Avenue, City, State 12345</span>
+        <div className="flex items-center justify-center gap-2 text-muted-foreground text-center">
+          <MapPin className="w-5 h-5 text-primary flex-shrink-0" />
+          <span className="text-lg">Mayfair, Opposite Slot, Ile-Ife, Osun State, Nigeria</span>
         </div>
+
+        <p className="text-center text-muted-foreground mt-4">
+          We warmly invite you to worship with us and experience the transforming power of God at RCCG Master's Place.
+        </p>
       </div>
     </section>
   );
