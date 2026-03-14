@@ -2,7 +2,11 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { MessageSquarePlus, Search, Headphones, BookOpen, ChevronLeft, ChevronRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
-import AboutSection from "@/components/AboutSection";
+import WelcomeSection from "@/components/WelcomeSection";
+import VisionMissionSection from "@/components/VisionMissionSection";
+import CoreValuesSection from "@/components/CoreValuesSection";
+import MinistriesSection from "@/components/MinistriesSection";
+import VisitorsSection from "@/components/VisitorsSection";
 import ServiceTimesSection from "@/components/ServiceTimesSection";
 import EventsSection from "@/components/EventsSection";
 import ContactSection from "@/components/ContactSection";
@@ -15,7 +19,7 @@ import carousel3 from "@/assets/carousel-3.jpg";
 const carouselImages = [
   { src: carousel1, alt: "Pastor E.A. Adeboye preaching" },
   { src: carousel2, alt: "Pastor E.A. Adeboye ministering" },
-  { src: carousel3, alt: "Pastor E.A. Adeboye at the altar" },
+  { src: carousel3, alt: "Pastor E.A. Adeboye praying" },
 ];
 
 const quickActions = [
@@ -73,7 +77,6 @@ const Index = () => {
         style={{ background: "var(--hero-gradient)" }}
       >
         <div className="relative z-10 px-4 py-8 sm:py-12 max-w-6xl mx-auto">
-          {/* Top: Text + Carousel side by side on desktop, stacked on mobile */}
           <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10">
             {/* Text */}
             <div className="text-center md:text-left flex-1">
@@ -84,7 +87,7 @@ const Index = () => {
                 RCCG Master's Place
               </h1>
               <p className="text-primary-foreground/80 text-sm sm:text-base max-w-md mx-auto md:mx-0 mb-4 font-light leading-relaxed">
-                A place of worship, fellowship, and spiritual growth.
+                A Place of Worship, Word, and Transformation.
               </p>
             </div>
 
@@ -101,7 +104,6 @@ const Index = () => {
                     }`}
                   />
                 ))}
-                {/* Controls */}
                 <button
                   onClick={prev}
                   className="absolute left-2 top-1/2 -translate-y-1/2 bg-background/60 backdrop-blur-sm rounded-full p-1.5 text-foreground hover:bg-background/80 transition-colors"
@@ -116,7 +118,6 @@ const Index = () => {
                 >
                   <ChevronRight size={18} />
                 </button>
-                {/* Dots */}
                 <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
                   {carouselImages.map((_, i) => (
                     <button
@@ -154,7 +155,11 @@ const Index = () => {
         </div>
       </section>
 
-      <AboutSection />
+      <WelcomeSection />
+      <VisionMissionSection />
+      <CoreValuesSection />
+      <MinistriesSection />
+      <VisitorsSection />
       <ServiceTimesSection />
       <EventsSection />
       <ContactSection />

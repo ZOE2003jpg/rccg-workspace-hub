@@ -23,7 +23,7 @@ const ContactSection = () => {
               </div>
               <div>
                 <h4 className="font-semibold text-foreground mb-1">Location</h4>
-                <p className="text-muted-foreground">123 Faith Avenue, City, State 12345</p>
+                <p className="text-muted-foreground">Mayfair, Opposite Slot, Ile-Ife, Osun State, Nigeria</p>
               </div>
             </div>
             <div className="flex items-start gap-4">
@@ -32,7 +32,7 @@ const ContactSection = () => {
               </div>
               <div>
                 <h4 className="font-semibold text-foreground mb-1">Phone</h4>
-                <p className="text-muted-foreground">(555) 123-4567</p>
+                <p className="text-muted-foreground">[Insert Phone Number]</p>
               </div>
             </div>
             <div className="flex items-start gap-4">
@@ -41,12 +41,15 @@ const ContactSection = () => {
               </div>
               <div>
                 <h4 className="font-semibold text-foreground mb-1">Email</h4>
-                <p className="text-muted-foreground">info@rccgmastersplace.org</p>
+                <p className="text-muted-foreground">[Insert Church Email]</p>
               </div>
             </div>
 
             <div className="pt-4">
               <h4 className="font-semibold text-foreground mb-3">Follow Us</h4>
+              <p className="text-muted-foreground text-sm mb-3">
+                Follow us on social media to stay updated with services, events, and church activities.
+              </p>
               <div className="flex gap-3">
                 {[Facebook, Instagram, Youtube].map((Icon, i) => (
                   <a
@@ -61,10 +64,13 @@ const ContactSection = () => {
             </div>
           </div>
 
-          {/* Prayer request / contact form */}
+          {/* Prayer request form */}
           <div className="bg-card rounded-2xl p-8 border border-border">
             <h3 className="font-display text-xl font-semibold text-foreground mb-2">Prayer Request</h3>
-            <p className="text-muted-foreground text-sm mb-6">We'd love to pray with you. Share your request below.</p>
+            <p className="text-muted-foreground text-sm mb-6">
+              We believe in the power of prayer. If you have a prayer request, our prayer team would be
+              honored to stand with you in faith. Submit your prayer request and we will pray for you.
+            </p>
             <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
               <Input placeholder="Your Name" className="bg-background" />
               <Input type="email" placeholder="Your Email" className="bg-background" />

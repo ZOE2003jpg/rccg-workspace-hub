@@ -1,27 +1,20 @@
-import { Calendar, ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Flame, Users, Fish } from "lucide-react";
 
 const events = [
   {
-    date: "Mar 2",
-    month: "MAR",
-    title: "Annual Thanksgiving Service",
-    description: "Join us for a special service of gratitude and celebration.",
-    time: "10:00 AM",
+    icon: Flame,
+    title: "Annual Holy Ghost Congress",
+    description: "A powerful time of prayer, worship, and encounters with God's Spirit.",
   },
   {
-    date: "Mar 15",
-    month: "MAR",
-    title: "Youth Conference 2026",
-    description: "Empowering the next generation with purpose and vision.",
-    time: "5:00 PM",
+    icon: Users,
+    title: "Annual Convention",
+    description: "Join us for a life-changing gathering of teaching, fellowship, and spiritual renewal.",
   },
   {
-    date: "Apr 5",
-    month: "APR",
-    title: "Easter Sunday Celebration",
-    description: "Celebrate the resurrection with praise, worship, and fellowship.",
-    time: "9:00 AM",
+    icon: Fish,
+    title: "Let's Go Fishing (April & December)",
+    description: "A fun and engaging fellowship event as we enjoy God's creation and strengthen relationships in a relaxed outdoor setting.",
   },
 ];
 
@@ -32,33 +25,21 @@ const EventsSection = () => {
         <div className="text-center mb-16">
           <p className="text-primary font-semibold text-sm tracking-widest uppercase mb-2">Upcoming</p>
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            Events & Programs
+            Upcoming Events
           </h2>
         </div>
 
-        <div className="space-y-4">
+        <div className="grid sm:grid-cols-3 gap-6">
           {events.map((event) => (
             <div
               key={event.title}
-              className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8 bg-card rounded-2xl p-6 border border-border hover:shadow-lg hover:border-primary/20 transition-all duration-300"
+              className="bg-card rounded-2xl p-8 border border-border hover:shadow-lg hover:border-primary/20 transition-all duration-300 text-center"
             >
-              <div className="flex-shrink-0 w-16 h-16 rounded-xl bg-primary/10 flex flex-col items-center justify-center">
-                <span className="text-primary text-xs font-bold tracking-wider">{event.month}</span>
-                <span className="text-primary text-xl font-bold">{event.date.split(" ")[1]}</span>
+              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-5">
+                <event.icon className="w-7 h-7 text-primary" />
               </div>
-              <div className="flex-1">
-                <h3 className="font-display text-lg font-semibold text-foreground">{event.title}</h3>
-                <p className="text-muted-foreground text-sm mt-1">{event.description}</p>
-              </div>
-              <div className="flex items-center gap-4">
-                <span className="text-sm text-muted-foreground flex items-center gap-1">
-                  <Calendar className="w-4 h-4" />
-                  {event.time}
-                </span>
-                <Button variant="ghost" size="sm" className="text-primary hover:text-primary">
-                  Details <ArrowRight className="w-4 h-4 ml-1" />
-                </Button>
-              </div>
+              <h3 className="font-display text-lg font-semibold text-foreground mb-3">{event.title}</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">{event.description}</p>
             </div>
           ))}
         </div>
